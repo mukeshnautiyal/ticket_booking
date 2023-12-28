@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+{% block title %} Fast API Format {% endblock %}
+{% block content %}
+{% load static %}
+<div class="col-12 grid-margin stretch-card">
+	<div class="card">
+	  <div class="card-body">
+	  <a href="/framework/dashboard/">Dashboard</a><br>
+		<h4 class="card-title">Create API format</h4>
+		<p class="card-description">API format</p>
+		<form class="forms-sample" action="/framework/create_api" method="post">
+		{% csrf_token %}
+			<div class="form-group">
+				<label for="exampleSelectGender">Methods</label>
+				 <select class="form-control" name="method" id="exampleSelectGender">
+				  <option value="post">POST</option>
+				  <option value="get">GET</option>
+				  <option value="put">PUT</option>
+				  <option value="patch">PATCH</option>
+				  <option value="delete">DELETE</option>
+				</select>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputName1">End Point-:</label>
+			<input type="text" class="form-control" id="exampleInputName1" placeholder="End Point" name="end_point" required>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputEmail3">Email address</label>
+			<input type="text" class="form-control" id="exampleInputName1" placeholder="Request Param" name="request_param" required>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword4">Prediction Method Name-:</label>
+			<input type="text" class="form-control" id="exampleInputName1" placeholder="Prediction Method Name" name="prediction_method_name" required>
+		  </div>
+		  <div style="display: flex;justify-content: center;align-items: center;height: 100px;">
+				<button type="submit" class="btn btn-primary mr-2">Submit</button>
+		  </div>
+		</form>
+	  </div>
+	</div>
+</div>
+{% endblock %}
