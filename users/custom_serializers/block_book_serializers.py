@@ -30,7 +30,7 @@ class BookingListSerializer(BookingBaseSerializer):
     def to_representation(self, instance):
         try:
             rep = super(BookingListSerializer, self).to_representation(instance)
-            details = User.objects.get(pk=instance.vendor.id)
+            #details = User.objects.get(pk=instance.vendor.id)
             return rep    
         except Exception as E:
             print(E)

@@ -35,6 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_verified = models.BooleanField( default=True)
     email_verified =  models.BooleanField(default=True)
     address = models.TextField(null=True,blank=True)
+    phone               = models.CharField(validators=[RegexValidator( '^[0-9]{10}$')],max_length=12, null=True,blank=True,unique=True)
     role = models.ForeignKey(Roles, on_delete=models.DO_NOTHING,default= 2, related_name='role_id',related_query_name="user_role")
     otp   = models.IntegerField(validators=[RegexValidator( '^[0-9]{4}$')],null=True,blank=False)
     onetime_token = models.CharField(blank=True, null=True, unique=True, max_length=254, default=None)

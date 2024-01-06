@@ -28,6 +28,7 @@ class BusesListView(generics.ListAPIView):
                 pass
         else:
             queryset = queryset.order_by("-id")
+        print(queryset)
         return queryset
 
     def get(self, request, *args, **kwargs):

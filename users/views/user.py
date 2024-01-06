@@ -12,14 +12,14 @@ from users.utility.common_function import GenerateCode
 
 class CreateUser(generics.CreateAPIView):
 
-    authentication_classes = [SessionAuthentication, BasicAuthentication, JWTAuthentication]
-    permission_classes = (IsAuthenticated,IsAdmin)
+    #authentication_classes = [SessionAuthentication, BasicAuthentication, JWTAuthentication]
+    #permission_classes = (IsAuthenticated,IsAdmin)
     serializer_class = UserAddSerializer
     
     def post(self, request, *args, **kwargs):
         try:
             data = request.data
-            response = {'status':200 , "message":"Vendor Successfully Added","data":None}
+            response = {'status':200 , "message":"User Successfully Added","data":None}
             serializer = self.serializer_class(data=data)
             if not  serializer.is_valid():
                 data = {"status":400,"message":"Invalid Data","data":{"message":"Invalid Data",'form_errors':serializer.errors}}

@@ -29,8 +29,8 @@ class BusListSerializer(BusBaseSerializer):
     def to_representation(self, instance):
         try:
             rep = super(BusListSerializer, self).to_representation(instance)
-            details = User.objects.get(pk=instance.vendor.id)
-            rep["vendor"] = {"status":details.status,"number_seats_avialable":details.number_seats_avialable,"source":details.source,"stops":details.stops,"destination":details.destination,"date_of_journey":details.date_of_journey}
+            details = Bus_Details.objects.get(pk=instance.id)
+            rep["details"] = {"status":details.status,"number_seats_avialable":details.number_seats_avialable,"source":details.source,"stops":details.stops,"destination":details.destination,"date_of_journey":details.date_of_journey}
             return rep    
         except Exception as E:
             print(E)
