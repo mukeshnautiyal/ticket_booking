@@ -26,7 +26,7 @@ class UserListSerializer(UserBaseSerializer):
        
     def to_representation(self, instance):
         try:
-            rep = super(VendorListSerializer, self).to_representation(instance)            
+            rep = super(UserListSerializer, self).to_representation(instance)            
             return rep    
         except Exception as E:
             print(E)
